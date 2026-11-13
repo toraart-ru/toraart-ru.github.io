@@ -61,7 +61,7 @@ figcaption{font-size:14px;line-height:1.45;color:var(--muted);text-align:center;
 .rel h2{font-size:26px;margin:34px 0 14px}
 .cards{display:grid;gap:16px}@media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}@media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{text-decoration:none;display:block;background:var(--card);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
-.card img{width:100%;aspect-ratio:3/2;object-fit:cover}.card .noimg{aspect-ratio:3/2;background:var(--surface);display:grid;place-items:center;font-family:var(--head);font-size:26px;color:var(--accent)}
+.card img{width:100%;aspect-ratio:3/2;object-fit:cover}.card .noimg{aspect-ratio:3/2;background:var(--surface);display:grid;place-items:center}.card .noimg img{width:34%;height:auto;aspect-ratio:auto;object-fit:contain}
 .card div.t{padding:12px 14px 16px}
 .card small{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .card h3{font-size:22px;line-height:1.2}
