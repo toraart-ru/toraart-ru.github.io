@@ -90,7 +90,7 @@ footer{margin-top:40px;padding:26px 0;background:#2a2118;color:#eadfcb;font-size
 .sall{display:block;padding:10px 4px 2px;color:var(--accent);font-weight:700;text-decoration:none}
 .snone,.scount{margin:10px 4px 0;color:var(--muted);font-size:15px}
 .spage{padding:10px 0 30px}.spage .sres{max-height:none}
-@media (max-width:899px){.search{right:72px;top:16px}.sbox{position:fixed;left:12px;right:12px;top:68px;width:auto}}
+@media (max-width:899px){.bar{flex-direction:row;align-items:center;gap:4px}.logo{flex:0 1 auto;min-width:0;margin-right:auto}.logo img{max-width:100%;height:auto;max-height:44px}.search,.menu{position:relative;right:auto;top:auto;flex:none}.sbox{position:fixed;left:12px;right:12px;top:68px;width:auto}}
 
 /* rubric pages on phones: compact list, small picture left, title right */
 @media (max-width:639px){
