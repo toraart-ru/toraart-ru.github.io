@@ -54,8 +54,9 @@ figcaption{font-size:14px;line-height:1.45;color:var(--muted);text-align:center;
 .he{font-family:"Noto Serif Hebrew","SBL Hebrew",serif;direction:rtl;unicode-bidi:isolate;font-size:1.08em}
 .textimg{margin:24px 0;padding:18px 20px;background:var(--surface);border-radius:4px;text-align:center}
 .textimg p{margin:0 0 6px}.textimg p[dir=rtl]{font-size:1.25em;line-height:1.7}.textimg .he{font-size:1.35em;line-height:1.6}.textimg small{display:block;color:var(--muted);font-size:14px;margin-top:6px}
-.pn{display:grid;gap:12px;margin:36px 0 0;padding:22px 0 0;border-top:1px solid var(--rule)}
-.pn a{text-decoration:none;display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+article{padding-bottom:40px}.after{background:#efe4cf;border-top:1px solid #d9c7a6;padding:28px 0 36px;margin-bottom:-40px}.after .rel h2{margin-top:40px}
+.pn{display:grid;gap:12px;margin:0;padding:0}
+.pn a{text-decoration:none;display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:4px;background:#fffdf8}
 .pn small{display:block;color:var(--muted);font-size:13px;margin-bottom:4px}.pn strong{font-family:var(--head);font-size:20px;font-weight:600;line-height:1.25}
 @media(min-width:720px){.pn{grid-template-columns:1fr 1fr}.pn .nx{text-align:right;grid-column:2}}
 .rel h2{font-size:26px;margin:34px 0 14px}
