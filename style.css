@@ -75,3 +75,14 @@ section{padding:30px 0}section>.wrap>h2{font-size:clamp(26px,4vw,34px);margin:0 
 .pagehead{padding:34px 0 6px;text-align:center}.pagehead h1{font-size:clamp(32px,6vw,46px)}.pagehead p{color:var(--muted);margin:8px auto 0;max-width:60ch}
 .map h2{font-size:26px;margin:30px 0 10px}.map ul{margin:0;padding-left:1.1em}.map li{margin:0 0 6px}.map a{text-decoration:none}.map a:hover{color:var(--accent)}.map small{color:var(--muted)}
 footer{margin-top:40px;padding:26px 0;background:#2a2118;color:#eadfcb;font-size:15px}footer a{color:inherit}
+
+/* rubric pages on phones: compact list, small picture left, title right */
+@media (max-width:639px){
+.cards--list{grid-template-columns:1fr;gap:8px}
+.cards--list .card{display:grid;grid-template-columns:88px 1fr;align-items:center;min-height:88px}
+.cards--list .card>img,.cards--list .card>.noimg{width:88px;height:88px;aspect-ratio:1/1;object-fit:cover}
+.cards--list .card>.noimg img{width:46%}
+.cards--list .card div.t{padding:8px 12px}
+.cards--list .card small{display:none}
+.cards--list .card h3{font-size:17px;line-height:1.25}
+}
