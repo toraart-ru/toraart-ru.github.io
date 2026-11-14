@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://toraart-ru.github.io/sitemap.xml
