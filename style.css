@@ -44,7 +44,7 @@ article{padding:34px 0 10px}article h1{font-size:clamp(30px,6vw,44px);margin:0 0
 .meta{color:var(--muted);font-size:15px;margin:0 0 26px}
 .body p{margin:0 0 14px}.body h2,.body h3{font-size:clamp(22px,3.6vw,27px);margin:30px 0 10px}
 .body a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
-.body figure{margin:24px 0}.body figure img,.body>img{margin:0 auto;border-radius:4px}
+.body figure{margin:24px 0}.body figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}.body figure.pair img{width:100%}.body figure.pair figcaption{grid-column:1/-1}.body figure img,.body>img{margin:0 auto;border-radius:4px}
 .body>img{margin:24px auto}
 .body ul,.body ol{padding-left:1.3em;margin:0 0 14px}.body blockquote{margin:18px 0;padding:4px 0 4px 18px;border-left:3px solid var(--rule);color:#4a3d30}
 .body table{border-collapse:collapse;margin:16px 0;font-size:16px}.body td,.body th{border:1px solid var(--rule);padding:6px 8px;vertical-align:top}
