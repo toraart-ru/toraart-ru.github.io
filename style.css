@@ -76,6 +76,22 @@ section{padding:30px 0}section>.wrap>h2{font-size:clamp(26px,4vw,34px);margin:0 
 .map h2{font-size:26px;margin:30px 0 10px}.map ul{margin:0;padding-left:1.1em}.map li{margin:0 0 6px}.map a{text-decoration:none}.map a:hover{color:var(--accent)}.map small{color:var(--muted)}
 footer{margin-top:40px;padding:26px 0;background:#2a2118;color:#eadfcb;font-size:15px}footer a{color:inherit}
 
+/* search */
+.search{position:absolute;right:0;top:16px}
+.search summary{list-style:none;cursor:pointer;display:grid;place-items:center;width:42px;height:38px;border:1px solid var(--rule);border-radius:3px;background:var(--bg);color:var(--ink)}
+.search summary::-webkit-details-marker{display:none}.search[open] summary{color:var(--accent);border-color:var(--accent)}
+.sbox{position:absolute;right:0;top:46px;width:min(560px,calc(100vw - 32px));background:var(--card);border:1px solid var(--rule);border-radius:4px;box-shadow:0 8px 24px rgba(42,33,24,.14);padding:12px;z-index:50}
+.sbox input,.spage input{width:100%;font:400 18px/1.3 var(--text);padding:10px 12px;border:1px solid #cdbb9a;border-radius:3px;background:#fff;color:var(--ink)}
+.sbox input:focus,.spage input:focus{outline:2px solid var(--accent);outline-offset:0}
+.sres{max-height:60vh;overflow:auto}.sres:empty{display:none}
+.shit{display:block;text-decoration:none;padding:10px 4px;border-bottom:1px solid var(--rule)}.shit:hover strong{color:var(--accent)}
+.shit strong{display:block;font-family:var(--head);font-size:20px;font-weight:600;line-height:1.2;margin-bottom:3px}
+.shit span{display:block;font-size:15px;line-height:1.4;color:var(--muted)}.shit mark{background:#f3dfb0;color:inherit;padding:0 1px}
+.sall{display:block;padding:10px 4px 2px;color:var(--accent);font-weight:700;text-decoration:none}
+.snone,.scount{margin:10px 4px 0;color:var(--muted);font-size:15px}
+.spage{padding:10px 0 30px}.spage .sres{max-height:none}
+@media (max-width:899px){.search{right:92px;top:16px}.sbox{position:fixed;left:12px;right:12px;top:68px;width:auto}}
+
 /* rubric pages on phones: compact list, small picture left, title right */
 @media (max-width:639px){
 .cards--list{grid-template-columns:1fr;gap:8px}
