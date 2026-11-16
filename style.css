@@ -28,16 +28,6 @@ a{color:inherit}img{display:block;max-width:100%;height:auto}
 h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.2;margin:0}
 header{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--rule);transition:transform .25s ease}
 header.hdr-hide{transform:translateY(-101%)}
-.bar{display:flex;flex-direction:column;align-items:center;padding:12px 0 0;position:relative}
-.logo{flex:none}.logo img{height:58px;width:auto}
-.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;padding:10px 0 12px;font-size:15px;line-height:1.3;color:var(--muted)}
-.nav a{text-decoration:none;white-space:nowrap}.nav a:hover,.nav a.on{color:var(--accent)}
-.menu{display:none;position:absolute;right:0;top:16px}
-.menu summary{list-style:none;cursor:pointer;border:1px solid var(--rule);padding:7px 12px;font-size:15px;border-radius:3px;background:var(--bg)}
-.menu summary::-webkit-details-marker{display:none}
-.menu .drop{position:absolute;right:0;top:44px;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:8px 0;min-width:230px;box-shadow:0 6px 20px rgba(42,33,24,.12)}
-.menu .drop a{display:block;padding:9px 18px;text-decoration:none;font-size:16px}.menu .drop a.on{color:var(--accent)}
-@media (max-width:899px){.nav{display:none}.menu{display:block}.bar{align-items:flex-start;padding:10px 0}.logo img{height:44px}}
 .kicker{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
 .kicker a{text-decoration:none}
 article{padding:34px 0 10px}article h1{font-size:clamp(30px,6vw,44px);margin:0 0 10px}
@@ -74,10 +64,69 @@ section{padding:30px 0}section>.wrap>h2{font-size:clamp(26px,4vw,34px);margin:0 
 .hero{padding:40px 0 10px;text-align:center}.hero h1{font-size:clamp(34px,6vw,52px)}.hero p{max-width:58ch;margin:12px auto 0;color:var(--muted)}
 .pagehead{padding:34px 0 6px;text-align:center}.pagehead h1{font-size:clamp(32px,6vw,46px)}.pagehead p{color:var(--muted);margin:8px auto 0;max-width:60ch}
 .map h2{font-size:26px;margin:30px 0 10px}.map ul{margin:0;padding-left:1.1em}.map li{margin:0 0 6px}.map a{text-decoration:none}.map a:hover{color:var(--accent)}.map small{color:var(--muted)}
-footer{margin-top:40px;padding:26px 0;background:#2a2118;color:#eadfcb;font-size:15px}footer a{color:inherit}
+
+/* header like torah-art.github.io: one row */
+.bar{display:flex;align-items:center;gap:6px;padding:10px 0;position:relative}
+.logo{flex:0 1 auto;min-width:0;margin-right:auto}.logo img{height:52px;width:auto;max-width:100%}
+.nav-main{display:flex;align-items:center;gap:22px;margin-right:14px;font-size:16px;color:var(--ink)}
+.nav-main>a,.dd summary{text-decoration:none;white-space:nowrap;cursor:pointer}.nav-main>a:hover,.dd summary:hover{color:var(--accent)}
+.dd{position:relative}.dd summary{list-style:none}.dd summary::-webkit-details-marker{display:none}
+.dd summary::after,.menu summary::after{content:"";display:inline-block;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:0 2px 3px 8px}
+.drop{list-style:none;margin:0;position:absolute;top:calc(100% + 10px);background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:8px 0;min-width:250px;box-shadow:0 8px 24px rgba(42,33,24,.14);z-index:60}
+.dd .drop{left:-14px}.menu .drop{right:0}
+.drop a{display:block;padding:8px 18px;text-decoration:none;font-size:16px;white-space:nowrap}.drop a:hover,.drop a.on{color:var(--accent)}
+.drop .sep{border-top:1px solid var(--rule);margin:6px 0}
+.search,.menu{position:relative;flex:none}
+.menu summary{list-style:none;cursor:pointer;padding:8px 10px;font-size:16px;white-space:nowrap}.menu summary::-webkit-details-marker{display:none}
+.books-btn{flex:none;text-decoration:none;background:var(--accent);color:#fff;font-weight:700;font-size:15px;padding:9px 18px;border-radius:999px;margin-left:6px}
+.books-btn:hover{background:#6f2414}
+.menu{display:none}
+@media (max-width:899px){.nav-main{display:none}.menu{display:block}.logo img{height:auto;max-height:44px}.books-btn{padding:8px 14px;font-size:14px;margin-left:2px}.sbox{position:fixed;left:12px;right:12px;top:68px;width:auto}}
+@media (max-width:380px){.logo img{max-height:38px}.menu summary{padding:8px 6px}}
+
+/* home like torah-art.github.io */
+.intro{padding:46px 0 34px}.intro h1{font-size:clamp(36px,6vw,56px)}.intro .kicker{margin:14px 0 12px}
+.intro .lead{font-size:clamp(19px,2.4vw,22px);color:var(--muted);max-width:62ch;margin:0}
+.surface{background:var(--surface)}
+section>.wrap>h2{text-align:left}
+.cards--home .card a{text-decoration:none}.cards--home .card h3 a:hover{color:var(--accent)}
+.card .cnt,.pagehead .cnt{display:block;margin-top:8px;font-size:14px;color:var(--muted);text-decoration:none}
+.btn{display:inline-block;margin-top:22px;text-decoration:none;font-weight:700;font-size:15px;padding:10px 20px;border-radius:999px;border:1.5px solid var(--accent)}
+.btn--main{background:var(--accent);color:#fff}.btn--line{color:var(--accent);background:transparent}
+.btns{display:flex;flex-wrap:wrap;gap:0 10px}.btns .btn{margin-top:14px}
+.author p{max-width:66ch}
+.cform{max-width:640px;display:grid;gap:6px}.cform h2{font-size:clamp(26px,4vw,34px)}.cform__lede{margin:0 0 8px;color:var(--muted)}
+.cform label{font-size:15px;margin-top:6px}.cform input,.cform textarea{font:400 17px/1.4 var(--text);padding:10px 12px;border:1px solid #cdbb9a;border-radius:4px;background:#fff;color:var(--ink)}
+.cform textarea{min-height:140px}.cform button{justify-self:start;margin-top:10px;font:700 15px var(--text);padding:10px 22px;border-radius:999px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.cform__hp{display:none}.cform__status{color:var(--muted);font-size:15px}
+
+/* rubric groups and lists like torah-art.github.io */
+.pagehead{text-align:left}.pagehead p{margin-left:0}.pagehead .kicker{margin-bottom:8px}
+.group{padding:10px 0 20px}.gh{font-size:clamp(26px,4vw,32px);margin:14px 0 12px}.gh a{text-decoration:none}.gh a:hover{color:var(--accent)}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.list a{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;text-decoration:none;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:8px}
+.list a>img,.list a>.noimg{width:96px;height:72px;object-fit:cover;border-radius:4px}.list .noimg{display:grid;place-items:center;background:var(--surface)}.list .noimg img{width:40%}
+.list strong{display:block;font-family:var(--head);font-size:21px;font-weight:600;line-height:1.2}.list a:hover strong{color:var(--accent)}
+.list .d{display:block;font-size:14px;color:var(--muted);margin-top:3px}
+@media(min-width:900px){.list{grid-template-columns:1fr 1fr}}
+.amg{display:grid;gap:10px}
+.amg__h{margin:0}.amg__b{width:100%;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:8px 14px 8px 8px;font:inherit;color:inherit}
+.amg__b img{width:72px;height:54px;object-fit:cover;border-radius:4px;flex:none}
+.amg__t{font-family:var(--head);font-size:23px;font-weight:600;line-height:1.2;flex:1}
+.amg__n{flex:none;min-width:30px;text-align:center;font:700 13px var(--text);color:var(--accent);background:var(--surface);border-radius:999px;padding:3px 9px}
+.amg__i{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px 2px;transition:transform .2s}
+.amg__b[aria-expanded=true] .amg__i{transform:rotate(-135deg);margin-bottom:-4px}
+.amg__b:hover .amg__t{color:var(--accent)}
+.amg__p{padding:10px 0 8px}
+@media(max-width:639px){.list a{grid-template-columns:72px 1fr;gap:10px}.list a>img,.list a>.noimg{width:72px;height:72px}.list strong{font-size:18px}.amg__t{font-size:20px}.amg__b img{width:56px;height:44px}}
+
+/* footer like torah-art.github.io */
+footer{margin-top:40px;padding:34px 0 22px;background:#2a2118;color:#eadfcb;font-size:15px}footer a{color:inherit;text-decoration:none}footer a:hover{text-decoration:underline}
+footer .cols{display:grid;gap:24px}@media(min-width:720px){footer .cols{grid-template-columns:repeat(3,1fr)}}
+footer h3{font-size:20px;margin:0 0 10px;color:#fff}footer ul{list-style:none;margin:0;padding:0}footer li{margin:0 0 6px}
+footer .copy{margin:26px 0 0;color:#b9a98f;font-size:14px}
 
 /* search */
-.search{position:absolute;right:0;top:16px}
 .search summary{list-style:none;cursor:pointer;display:grid;place-items:center;width:42px;height:38px;border:1px solid var(--rule);border-radius:3px;background:var(--bg);color:var(--ink)}
 .search summary::-webkit-details-marker{display:none}.search[open] summary{color:var(--accent);border-color:var(--accent)}
 .sbox{position:absolute;right:0;top:46px;width:min(560px,calc(100vw - 32px));background:var(--card);border:1px solid var(--rule);border-radius:4px;box-shadow:0 8px 24px rgba(42,33,24,.14);padding:12px;z-index:50}
@@ -90,7 +139,6 @@ footer{margin-top:40px;padding:26px 0;background:#2a2118;color:#eadfcb;font-size
 .sall{display:block;padding:10px 4px 2px;color:var(--accent);font-weight:700;text-decoration:none}
 .snone,.scount{margin:10px 4px 0;color:var(--muted);font-size:15px}
 .spage{padding:10px 0 30px}.spage .sres{max-height:none}
-@media (max-width:899px){.bar{flex-direction:row;align-items:center;gap:4px}.logo{flex:0 1 auto;min-width:0;margin-right:auto}.logo img{max-width:100%;height:auto;max-height:44px}.search,.menu{position:relative;right:auto;top:auto;flex:none}.sbox{position:fixed;left:12px;right:12px;top:68px;width:auto}}
 
 /* rubric pages on phones: compact list, small picture left, title right */
 @media (max-width:639px){
