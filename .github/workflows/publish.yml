@@ -48,7 +48,7 @@ jobs:
       - name: Пост в Telegram
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID || '@TORAART_ru' }}
+          TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID || '@toraart' }}
           TEST_POST: ${{ inputs.test_post }}
         run: |
           if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then echo "Telegram не настроен"; exit 0; fi
