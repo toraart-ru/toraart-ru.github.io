@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '7 4 * * *'   # каждый день в 04:07 UTC (06:07 по Израилю зимой)
   workflow_dispatch:
+    inputs:
+      test_post:
+        description: 'Пробный пост в Telegram: последняя статья из ленты RSS'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -43,9 +48,20 @@ jobs:
       - name: Пост в Telegram
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID }}
+          TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID || '@TORAART_ru' }}
+          TEST_POST: ${{ inputs.test_post }}
         run: |
           if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then echo "Telegram не настроен"; exit 0; fi
+          if [ "$TEST_POST" = "true" ]; then
+            python3 - <<'PY'
+          import json, re, html, xml.etree.ElementTree as ET
+          it = ET.parse('site/rss.xml').getroot().find('channel/item')
+          enc = it.find('enclosure')
+          json.dump([dict(title=it.findtext('title'), url=it.findtext('link'), rubric=it.findtext('category') or '',
+                          text=it.findtext('description'), image=enc.get('url') if enc is not None else 'https://toraart-ru.github.io/og-default.jpg')],
+                    open('posts.json', 'w'), ensure_ascii=False)
+          PY
+          fi
           n=$(jq length posts.json)
           for i in $(seq 0 $((n-1))); do
             p=$(jq ".[$i]" posts.json)
