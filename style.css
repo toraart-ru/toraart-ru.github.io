@@ -126,6 +126,9 @@ footer .cols{display:grid;gap:24px}@media(min-width:720px){footer .cols{grid-tem
 footer h3{font-size:20px;margin:0 0 10px;color:#fff}footer ul{list-style:none;margin:0;padding:0}footer li{margin:0 0 6px}
 footer .copy{margin:26px 0 0;color:#b9a98f;font-size:14px}
 
+/* «Новое на сайте»: на телефоне — компактный список */
+@media (max-width:639px){.newest .cards{grid-template-columns:1fr;gap:8px}.newest .card{display:grid;grid-template-columns:104px 1fr;align-items:center}.newest .card img,.newest .card .noimg{width:104px;height:78px;aspect-ratio:auto}.newest .card div.t{padding:8px 12px}.newest .card h3{font-size:17px;line-height:1.25}.newest .card small{font-size:10px;margin-bottom:3px}}
+.newest .rss{margin:14px 0 0;font-size:15px}
 /* search */
 .search summary{list-style:none;cursor:pointer;display:grid;place-items:center;width:42px;height:38px;border:1px solid var(--rule);border-radius:3px;background:var(--bg);color:var(--ink)}
 .search summary::-webkit-details-marker{display:none}.search[open] summary{color:var(--accent);border-color:var(--accent)}
