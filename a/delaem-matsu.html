@@ -11,7 +11,7 @@
 <p>Это очень впечатляет – Бог единственный раз за всю историю человечества, накормил Свой народ – Израиля мацой из хлеба, который Сам же одождил отцам нашим в пустыне Синайской с неба. И это был первый раз, когда они праздновали Песах и ели мацу, будучи свободными людьми.</p>
 <p>В пасхальную ночь перед выходом из земли Египетской израильтяне фактически были еще рабами фараона и пребывали на территории египетской империи.<br/> И это был первый и единственный раз, когда они вкушали мацу с неба, будучи совершенно свободными, не рабами никому, только Всевышнему.</p>
 <p>Мы имеем дело с очень глубокими духовными процессами, которые Всевышний запустил там вместе со священнодействием в святилище свободных и праведных Его праведностью людей.</p>
-<figure><img alt="повеление Израилю о совершении Пасхи" loading="lazy" src="../img/2014/04/pust-prazdnujut-Pesah1.jpg"/>
+<figure><a class="zoom" href="../img/2014/04/pust-prazdnujut-Pesah1.jpg"><img alt="повеление Израилю о совершении Пасхи" loading="lazy" src="../img/2014/04/pust-prazdnujut-Pesah1.jpg"/></a>
 <figcaption>повеление Израилю о совершении Пасхи</figcaption>
 </figure>
 <p>***</p>
@@ -19,7 +19,7 @@
 <p>- <em>Эфраим</em>:  Весь Израиль волнуется – мы подходим к Песаху и делаем последние приготовления.</p>
 <p>Сегодня предмет нашего исследования то, что является центральным блюдом, на праздничном столе Седера. Этот праздник называется также праздником Мацот или Опресноков.</p>
 <p>Не знаю, на сколько это реально – сделать мацу в домашних условиях (или в условиях пустыни, как некогда отцы наши), но у нас есть эксперт на этот счет – кулинар высшего класса, шеф Миша Рубин. Я бы сказал, он – поэт среди кулинаров.</p>
-<figure><img alt="Копенгагенская Агада 1739 г. Художник - Филипп Айзек Леви (1720-1795)" loading="lazy" src="../img/2014/04/agada17veka.jpg"/>
+<figure><a class="zoom" href="../img/2014/04/agada17veka.jpg"><img alt="Копенгагенская Агада 1739 г. Художник - Филипп Айзек Леви (1720-1795)" loading="lazy" src="../img/2014/04/agada17veka.jpg"/></a>
 <figcaption>Копенгагенская Агада 1739 г. Художник - Филипп Айзек Леви (1720-1795)</figcaption>
 </figure>
 <p>Вот я хочу бросить тебе вызов, что ты скажешь, это реально сделать мацу в домашних условиях? Настоящую! Не просто поиграть и выбросить, но то, что мы сможем вкушать в седер Песах? Кашерную!</p>
@@ -76,4 +76,16 @@ window.TA_SEARCH=run;
 document.addEventListener('DOMContentLoaded',function(){var d=document.querySelector('details.search');if(!d)return;var i=d.querySelector('input'),b=d.querySelector('.sres');
 d.addEventListener('toggle',function(){if(d.open){load();setTimeout(function(){i.focus()},50);var mm=document.querySelector('details.menu');if(mm)mm.open=false}});
 i.addEventListener('input',function(){run(i.value,b,6)});
-var mm=document.querySelector('details.menu');if(mm)mm.addEventListener('toggle',function(){if(mm.open)d.open=false})})})();</script><script>document.addEventListener('click',function(e){document.querySelectorAll('header details[open]').forEach(function(d){if(!d.contains(e.target))d.open=false})});(function(){var h=document.querySelector('header');if(!h)return;var y=window.pageYOffset;window.addEventListener('scroll',function(){var n=window.pageYOffset,o=h.querySelector('details[open]');if(n>y+4&&n>h.offsetHeight&&!o){h.classList.add('hdr-hide')}else if(n<y-1||n<=h.offsetHeight){h.classList.remove('hdr-hide')}y=n},{passive:true})})();</script></body></html>
+var mm=document.querySelector('details.menu');if(mm)mm.addEventListener('toggle',function(){if(mm.open)d.open=false})})})();</script><script>document.addEventListener('click',function(e){document.querySelectorAll('header details[open]').forEach(function(d){if(!d.contains(e.target))d.open=false})});(function(){var h=document.querySelector('header');if(!h)return;var y=window.pageYOffset;window.addEventListener('scroll',function(){var n=window.pageYOffset,o=h.querySelector('details[open]');if(n>y+4&&n>h.offsetHeight&&!o){h.classList.add('hdr-hide')}else if(n<y-1||n<=h.offsetHeight){h.classList.remove('hdr-hide')}y=n},{passive:true})})();</script><script>(function(){var lb,im,cnt,list=[],cur=0;
+function links(){return [].slice.call(document.querySelectorAll('a.zoom'))}
+function show(i){cur=(i+list.length)%list.length;var a=list[cur];im.src=a.getAttribute('href');cnt.textContent=(cur+1)+' / '+list.length;var f=a.closest('figure'),c=f&&f.querySelector('figcaption');lb.querySelector('.lb-t').textContent=c?c.textContent:''}
+function close(){lb.hidden=true;document.documentElement.style.overflow=''}
+function build(){lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-label','Картинка');
+lb.innerHTML='<div class="lb-c"></div><img alt=""><div class="lb-t"></div><button type="button" class="lb-p" aria-label="Предыдущая картинка">\u2039</button><button type="button" class="lb-n" aria-label="Следующая картинка">\u203a</button><button type="button" class="lb-x" aria-label="Закрыть">\u00d7</button>';
+document.body.appendChild(lb);im=lb.querySelector('img');cnt=lb.querySelector('.lb-c');
+lb.addEventListener('click',function(e){var t=e.target;if(t.closest('.lb-p')){show(cur-1)}else if(t.closest('.lb-n')){show(cur+1)}else if(t===im&&list.length>1){show(cur+1)}else{close()}});
+document.addEventListener('keydown',function(k){if(lb.hidden)return;if(k.key==='Escape')close();else if(k.key==='ArrowLeft')show(cur-1);else if(k.key==='ArrowRight')show(cur+1)});
+var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches.length===1?e.touches[0].clientX:null},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null||list.length<2)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(dx<0?cur+1:cur-1);x0=null},{passive:true})}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.zoom');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();
+if(!lb)build();list=links();lb.classList.toggle('one',list.length<2);show(list.indexOf(a));lb.hidden=false;document.documentElement.style.overflow='hidden';lb.querySelector('.lb-x').focus()})})();</script></body></html>

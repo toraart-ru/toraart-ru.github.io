@@ -4,7 +4,7 @@
 
 
 
-<img alt="Noah_Russel_Crow" loading="lazy" src="../img/2016/07/Noah_Russel_Crow.jpg"/>
+<a class="zoom" href="../img/2016/07/Noah_Russel_Crow.jpg"><img alt="Noah_Russel_Crow" loading="lazy" src="../img/2016/07/Noah_Russel_Crow.jpg"/></a>
 
 
 
@@ -28,7 +28,7 @@
 .
 
 
-<p><img alt="Íîé" loading="lazy" src="../img/2016/07/Noah.jpg"/></p>
+<p><a class="zoom" href="../img/2016/07/Noah.jpg"><img alt="Íîé" loading="lazy" src="../img/2016/07/Noah.jpg"/></a></p>
 
 
 
@@ -38,7 +38,7 @@
 <p>Третья линия - линия власти. Власть насилия или власть любви? Подчинить своей воле или дать покров и защиту. Причем этот вопрос ставится как по отношению к людям, так и по отношению к миру, земле, природе. Собственно, весь сюжет с родившимися дочерями Сима - тоже об этом: о власти выбрать, быть человеку или не быть. Выбор, который Господь предоставляет самому человеку. На мой взгляд - это очень мощное послание фильма: о нашей ответственности за собственное будущее. И перед Богом, и друг по отношению к другу. И последний диалог фильма между Ноем и его приемной дочерью - как раз об этом...</p>
 
 
-<img alt="Noah film 3" loading="lazy" src="../img/2016/07/Noah-film-3.jpg"/>
+<a class="zoom" href="../img/2016/07/Noah-film-3.jpg"><img alt="Noah film 3" loading="lazy" src="../img/2016/07/Noah-film-3.jpg"/></a>
 
 
 <strong>.</strong>
@@ -47,7 +47,7 @@
 <p>Не менее интересны и рассуждения о греховности человека. Греховности, которая не отрицает образ Божий. Яркий рассказ о творении и грехопадении, равно как и о том, что мы даже в лучших своих поступках несем в себе грех - кажется, это тоже важные слова для современного мира. Да и лично для меня это - не лишнее напоминание.</p>
 
 
-<img alt="Noah-Wide" loading="lazy" src="../img/2016/07/Noah-Wide.jpg"/>
+<a class="zoom" href="../img/2016/07/Noah-Wide.jpg"><img alt="Noah-Wide" loading="lazy" src="../img/2016/07/Noah-Wide.jpg"/></a>
 
 
 
@@ -58,7 +58,7 @@
 <p>Можно еще многое сказать: и об актерской игре, и о ярких моментах. Но для меня лично важны именно вопросы, которые остаются после просмотра. На мой взгляд, именно это, более всего остального, говорит о явном успехе замысла.</p>
 
 <em>Михаил Дубровский</em>
-<img alt="Noah film 2" loading="lazy" src="../img/2016/07/Noah-film-2.jpg"/>
+<a class="zoom" href="../img/2016/07/Noah-film-2.jpg"><img alt="Noah film 2" loading="lazy" src="../img/2016/07/Noah-film-2.jpg"/></a>
 
 
 
@@ -83,4 +83,16 @@ window.TA_SEARCH=run;
 document.addEventListener('DOMContentLoaded',function(){var d=document.querySelector('details.search');if(!d)return;var i=d.querySelector('input'),b=d.querySelector('.sres');
 d.addEventListener('toggle',function(){if(d.open){load();setTimeout(function(){i.focus()},50);var mm=document.querySelector('details.menu');if(mm)mm.open=false}});
 i.addEventListener('input',function(){run(i.value,b,6)});
-var mm=document.querySelector('details.menu');if(mm)mm.addEventListener('toggle',function(){if(mm.open)d.open=false})})})();</script><script>document.addEventListener('click',function(e){document.querySelectorAll('header details[open]').forEach(function(d){if(!d.contains(e.target))d.open=false})});(function(){var h=document.querySelector('header');if(!h)return;var y=window.pageYOffset;window.addEventListener('scroll',function(){var n=window.pageYOffset,o=h.querySelector('details[open]');if(n>y+4&&n>h.offsetHeight&&!o){h.classList.add('hdr-hide')}else if(n<y-1||n<=h.offsetHeight){h.classList.remove('hdr-hide')}y=n},{passive:true})})();</script></body></html>
+var mm=document.querySelector('details.menu');if(mm)mm.addEventListener('toggle',function(){if(mm.open)d.open=false})})})();</script><script>document.addEventListener('click',function(e){document.querySelectorAll('header details[open]').forEach(function(d){if(!d.contains(e.target))d.open=false})});(function(){var h=document.querySelector('header');if(!h)return;var y=window.pageYOffset;window.addEventListener('scroll',function(){var n=window.pageYOffset,o=h.querySelector('details[open]');if(n>y+4&&n>h.offsetHeight&&!o){h.classList.add('hdr-hide')}else if(n<y-1||n<=h.offsetHeight){h.classList.remove('hdr-hide')}y=n},{passive:true})})();</script><script>(function(){var lb,im,cnt,list=[],cur=0;
+function links(){return [].slice.call(document.querySelectorAll('a.zoom'))}
+function show(i){cur=(i+list.length)%list.length;var a=list[cur];im.src=a.getAttribute('href');cnt.textContent=(cur+1)+' / '+list.length;var f=a.closest('figure'),c=f&&f.querySelector('figcaption');lb.querySelector('.lb-t').textContent=c?c.textContent:''}
+function close(){lb.hidden=true;document.documentElement.style.overflow=''}
+function build(){lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-label','Картинка');
+lb.innerHTML='<div class="lb-c"></div><img alt=""><div class="lb-t"></div><button type="button" class="lb-p" aria-label="Предыдущая картинка">\u2039</button><button type="button" class="lb-n" aria-label="Следующая картинка">\u203a</button><button type="button" class="lb-x" aria-label="Закрыть">\u00d7</button>';
+document.body.appendChild(lb);im=lb.querySelector('img');cnt=lb.querySelector('.lb-c');
+lb.addEventListener('click',function(e){var t=e.target;if(t.closest('.lb-p')){show(cur-1)}else if(t.closest('.lb-n')){show(cur+1)}else if(t===im&&list.length>1){show(cur+1)}else{close()}});
+document.addEventListener('keydown',function(k){if(lb.hidden)return;if(k.key==='Escape')close();else if(k.key==='ArrowLeft')show(cur-1);else if(k.key==='ArrowRight')show(cur+1)});
+var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches.length===1?e.touches[0].clientX:null},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null||list.length<2)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(dx<0?cur+1:cur-1);x0=null},{passive:true})}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.zoom');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();
+if(!lb)build();list=links();lb.classList.toggle('one',list.length<2);show(list.indexOf(a));lb.hidden=false;document.documentElement.style.overflow='hidden';lb.querySelector('.lb-x').focus()})})();</script></body></html>
