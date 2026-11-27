@@ -51,7 +51,10 @@ jobs:
           TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID || '@toraart' }}
           TEST_POST: ${{ inputs.test_post }}
         run: |
-          if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then echo "Telegram не настроен"; exit 0; fi
+          if [ -z "$TG_TOKEN" ]; then
+            if [ "$TEST_POST" = "true" ]; then echo "::error::Нет секрета TELEGRAM_BOT_TOKEN в настройках репозитория"; exit 1; fi
+            echo "Telegram не настроен"; exit 0
+          fi
           if [ "$TEST_POST" = "true" ]; then
             python3 - <<'PY'
           import json, re, html, xml.etree.ElementTree as ET
@@ -63,6 +66,7 @@ jobs:
           PY
           fi
           n=$(jq length posts.json)
+          if [ "$n" = "0" ]; then echo "::notice::Постов для Telegram нет"; fi
           for i in $(seq 0 $((n-1))); do
             p=$(jq ".[$i]" posts.json)
             title=$(echo "$p" | jq -r .title | sed 's/&/\&amp;/g;s/</\&lt;/g;s/>/\&gt;/g')
@@ -72,5 +76,7 @@ jobs:
 
             curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendPhoto" \
               --data-urlencode "chat_id=${TG_CHAT}" --data-urlencode "photo=${img}" \
-              --data-urlencode "caption=${cap}" --data-urlencode "parse_mode=HTML" | head -c 300; echo
+              --data-urlencode "caption=${cap}" --data-urlencode "parse_mode=HTML" > resp.json
+            if [ "$(jq -r .ok resp.json)" != "true" ]; then echo "::error::Telegram ответил: $(jq -r .description resp.json)"; exit 1; fi
+            echo "::notice::Пост отправлен в ${TG_CHAT}: ${title}"
           done
