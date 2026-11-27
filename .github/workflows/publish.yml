@@ -1,0 +1,60 @@
+name: Отложенная публикация
+on:
+  schedule:
+    - cron: '7 4 * * *'   # каждый день в 04:07 UTC (06:07 по Израилю зимой)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+      - uses: actions/checkout@v4
+        with:
+          ref: scheduled
+          path: sched
+      - name: Выложить статьи, срок которых наступил
+        id: pub
+        run: |
+          today=$(TZ=Asia/Jerusalem date +%F)
+          posts='[]'
+          for d in $(ls sched | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' | sort); do
+            if [[ "$d" > "$today" ]]; then continue; fi
+            echo "Публикую $d"
+            if [ -f "sched/$d/_telegram.json" ]; then
+              posts=$(jq -s 'add' <(echo "$posts") "sched/$d/_telegram.json")
+              rm "sched/$d/_telegram.json"
+            fi
+            cp -r "sched/$d/." site/
+            git -C sched rm -r -q "$d"
+          done
+          echo "$posts" > posts.json
+          cd site
+          git config user.name "toraart-bot"; git config user.email "toraart-bot@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then git commit -q -m "Отложенная публикация $today" && git push -q; fi
+          cd ../sched
+          git config user.name "toraart-bot"; git config user.email "toraart-bot@users.noreply.github.com"
+          if ! git diff --cached --quiet; then git commit -q -m "Опубликовано $today" && git push -q; fi
+      - name: Пост в Telegram
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ vars.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then echo "Telegram не настроен"; exit 0; fi
+          n=$(jq length posts.json)
+          for i in $(seq 0 $((n-1))); do
+            p=$(jq ".[$i]" posts.json)
+            title=$(echo "$p" | jq -r .title | sed 's/&/\&amp;/g;s/</\&lt;/g;s/>/\&gt;/g')
+            text=$(echo "$p" | jq -r .text | sed 's/&/\&amp;/g;s/</\&lt;/g;s/>/\&gt;/g')
+            url=$(echo "$p" | jq -r .url); img=$(echo "$p" | jq -r .image); rub=$(echo "$p" | jq -r .rubric)
+            cap="<b>${title}</b>"$'\n'"${rub}"$'\n\n'"${text}"$'\n\n'"<a href=\"${url}\">Читать на сайте</a>"
+
+            curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendPhoto" \
+              --data-urlencode "chat_id=${TG_CHAT}" --data-urlencode "photo=${img}" \
+              --data-urlencode "caption=${cap}" --data-urlencode "parse_mode=HTML" | head -c 300; echo
+          done
